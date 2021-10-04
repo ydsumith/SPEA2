@@ -13,9 +13,9 @@ def test(x):
     return f
 
 n=2      # number of real-valued design variables
-bo1=0    # lower boundary of all variables. [0,0] also works.
-bo2=1    # upper boundary of all variables. [1,1] also works.
-g=70     # number of generations
+bo1=[0, 0]    # lower boundary of all variables. [0,0] also works.
+bo2=[1, 1]    # upper boundary of all variables. [1,1] also works.
+g=100     # number of generations
 p=40     # size of population         
 ap=25    # size of archive population (archive consists of the elites in population)
 mp=.1    # mutation probability (0<=mp<1)
@@ -27,4 +27,4 @@ plt.scatter(afvs[:,0],afvs[:,1],s=15,alpha=0.7)
 plt.title('Pareto frontier after '+str(g)+' generations')
 plt.xlabel('function 1')
 plt.ylabel('function 2')
-fig.savefig('Pareto.png',dpi=150)
+fig.savefig('Pareto.png',dpi=300)
