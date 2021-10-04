@@ -10,3 +10,4 @@ Run example.py to see how to use module spea2.
 
 ## Modifications
 1) Prints out Pareto front at every generation.
+2) Included test functions Schaffer function 1 and 2
