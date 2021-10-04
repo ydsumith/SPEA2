@@ -13,6 +13,7 @@ import numpy as np
 # saving data
 from os import path, mkdir
 from datetime import datetime
+import matplotlib.pyplot as plt
 
 def scale(x):
     s=np.std(x,0)
@@ -204,6 +205,15 @@ def optimize(objfun,n,bo1,bo2,
             ftr='}gen'+gn
         if savedata==1:
             np.savetxt(name,np.concatenate((avs,afvs),axis=1),header=hdr,footer=ftr)
+            #---plot pareto front every generation
+            fig=plt.figure(1)
+            plt.scatter(afvs[:,0],afvs[:,1],s=15,alpha=0.7)
+            plt.title('Pareto frontier after '+str(t)+' generations')
+            plt.xlabel('function 1')
+            plt.ylabel('function 2')
+            fig.savefig(out+'Pareto_gen_'+gn+'.png',dpi=300)
+            plt.close()
+            #--
         elif savedata==2:
             np.savetxt(name,np.concatenate((vs,fvs),axis=1),  header=hdr,footer=ftr)
             fl=open(paretofile,'a')
