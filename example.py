@@ -36,3 +36,12 @@ g=100               # number of generations
 p=40                # size of population         
 ap=25               # size of archive population (archive consists of the elites in population)
 mp=.1               # mutation probability (0<=mp<1)
+
+avs,afvs = spea2.optimize(test,n,bo1,bo2,g,p,ap,mp,prnt_msg=0,savedata=1)
+
+fig=plt.figure(1)
+plt.scatter(afvs[:,0],afvs[:,1],s=15,alpha=0.7)
+plt.title('Pareto frontier after '+str(g)+' generations')
+plt.xlabel('function 1')
+plt.ylabel('function 2')
+fig.savefig('Pareto.png',dpi=150)
